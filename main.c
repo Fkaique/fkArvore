@@ -106,38 +106,10 @@ Arv *remover(int info, Arv* raiz){
     return raiz;
 }
 int main(){
-    char option[9];
-    int info;
-    int value;
     Arv* arv=NULL;
-    while(scanf("%s", option) != EOF){
-        if(strcmp(option,"INFIXA") == 0){
-            global=0;
-            impr_ord(arv);
-            printf("\n");
-        }else if(strcmp(option,"PREFIXA") == 0){
-            global=0;
-            impr_pre(arv);
-            printf("\n");
-        }else if(strcmp(option,"POSFIXA") == 0){
-            global=0;
-            impr_pos(arv);
-            printf("\n");
-        }else if (option[0]=='I'){
-            scanf("%d", &info);
-            arv=ins_arv(info,arv);
-        }else if(option[0]=='P'){
-            scanf("%d", &info);
-            value = busca(info, arv);
-            if (value==1){
-                printf("%d existe\n", info);
-            }else{
-                printf("%d nao existe\n", info);
-            }
-        }else if(option[0]=='R'){
-            scanf("%d", &info);
-            arv=remover(info, arv);
-        }
-    }
+    arv=ins_arv(3,arv);
+    arv=ins_arv(6,arv);
+    arv=ins_arv(4,arv);
+    printf("oi");
     return 0;
 }
