@@ -6,28 +6,37 @@ void swap(int* a,int* b){
     *a=*b;
     *b=c;
 }
-void ordena(vet){/////errado
-    for (i=n-1; i>0; i--);{
-        for (int j=0; j<i;j++){
-            if (vet[i]<vet[j]){
-                swap(vet[i],vet[j]);
+void ordena(int vet[], int qtd){/////errado
+    int i, j; 
+    for (i=0; i<qtd; i++){
+        for(j=i+1; j<qtd; j++){
+            if (vet[i]>vet[j]){
+                swap(&vet[i],&vet[j]);
             }
         }
     }
+}
+int consulta(int vetor[] ,int value, int qtd){
+    for (int i=1; i<=qtd; i++){
+        if (value==vetor[i]){
+            return i;
+        }
+        printf("%d ",vetor[i]);
+    }
+    return 0;
 }
 int main() {
     int i, j;
     int n, q;
     scanf("%d",&n);
     scanf("%d",&q);
-    int vet[n], consulta[q];
+    int vet[n], consult[q];
     for (int i=0; i<n && i<MAX; i++){
         scanf("%d",&vet[i]);
     }
-    
-
-    for (int i=0; i<n; i++){
-        printf("%d ",vet[i]);
+    for (int i=0; i<q && i<MAX; i++){
+        scanf("%d",&consult[i]);
     }
-
+    ordena(vet, n);
+    printf("%d",consulta(&vet, consult, n));
 }
